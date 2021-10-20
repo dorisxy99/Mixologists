@@ -1,12 +1,6 @@
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
-const commentSchema = new Schema({
-    content: String,
-    creator: Schema.Types.ObjectId,
-    creatorName: String,
-    creatorAvatar: String
-});
 
 const reviewSchema = new Schema({
     content: {type: String, required: true},
@@ -24,7 +18,6 @@ const drinkSchema = new Schema({
     link: String,
     ingredients: String,
     creator: Schema.Types.ObjectId,
-    comments: [commentSchema],
     reviews: [reviewSchema]
 }, {
     timestamps: true
