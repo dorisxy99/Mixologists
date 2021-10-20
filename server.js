@@ -9,13 +9,14 @@ var passport = require('passport');
 
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/drinks');
-const { LengthRequired } = require('http-errors');
+
+var app = express();
 
 require('dotenv').config();
 require('./config/database');
 require('./config/passport');
 
-var app = express();
+
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));

@@ -1,0 +1,45 @@
+<%- include('../partials/header') %>
+
+<header id="drink-info">
+    <h2><%= drink.name %></h2>
+    <p><span>Link:</span> <a href="<%= drink.link %>">click here</a>
+        <span>Ingredients:</span>
+        <%= drink.ingredients %>
+    </p>
+    <% if (user) { %>
+        <form action="/drinks/<%= drink._id %>/edit" method="GET">
+            <button type="submit">Edit this drink?</button>
+        </form>
+        <form action="/drinks/<%= drink._id %>?_method=DELETE" method="POST">
+            <button type="submit">Delete this drink?</button>
+        </form>
+        <% } %>
+</header>
+    
+    <main id="rstrnt-details">
+    <section id="menu-items">
+        <p>Safe menu items</p>
+        <% rstrnt.menus.forEach(function(m) { %>
+            <div>$<%= m.price %> | <%= m.name %>
+                <% if (user?._id.equals(m.creator)) { %>
+                    <form action="/menus/<%= m._id %>?_method=DELETE" method="POST">
+                        <button type="submit">X</button>
+                    </form>
+                <% }; %>
+            </div>
+            <% }); %>
+                <form id="add-menu" action="/rstrnts/<%= rstrnt._id %>/menus" method="POST">
+                    <div class="input-group mb-3">
+                        <input type="text" name="price" class="form-control" value="$">
+                        <input type="text" name="name" class="form-control" value="Menu item">
+                        <input type="submit" class="input-group-text" value="+">
+                    </div>
+                </form>
+    </section>
+    <section id="comments">
+        <% rstrnt.comments.forEach(function(c) { %>
+            <div>
+                <h3>
+                    <img src="<%= c.creatorAvatar %>" alt="avatar">
+                <% if (user?._id.equals(c.creator)) { %>
+                    You've said..

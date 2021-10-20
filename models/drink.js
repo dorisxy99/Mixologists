@@ -30,4 +30,4 @@ const drinkSchema = new Schema({
     timestamps: true
 });
 
-module.exports = mongoose.model('drinks', drinkSchema);
+module.exports = mongoose.model('Drink', drinkSchema);
