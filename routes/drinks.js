@@ -8,19 +8,8 @@ router.get('/new', drinksCtrl.new);
 router.get('/:id', drinksCtrl.show);
 router.post('/', drinksCtrl.create);
 router.delete('/:id', drinksCtrl.delete);
+router.get('/:id/edit', drinksCtrl.edit);
+router.put('/:id', drinksCtrl.update);
 
-
-// router.get('/:id', drinksCtrl.show);
-
-// router.get('/:id/edit', isLoggedIn, rstrntsCtrl.edit);
-
-
-
-
-
-// //fix this one later
-// router.post('/comment_save', drinksCtrl.comment_save);
-
-// router.post('/save', drinksCtrl.save);
 
 module.exports = router;

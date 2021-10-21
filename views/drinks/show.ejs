@@ -4,10 +4,8 @@
 
 <header id="drink-info">
     <h2><%= drink.name %></h2>
-    <p>
-        <span>Ingredients:</span>
-        <%= drink.ingredients %>
-    </p>
+    <div>Ingredients:</div>
+    <p class="show-breaks"><%= drink.ingredients %></p>
     <% if (user && user._id.equals(drink.user._id)) { %>
         <form action="/drinks/<%= drink._id %>/edit" method="GET">
             <button type="submit">Edit this drink?</button>

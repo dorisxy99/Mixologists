@@ -5,7 +5,9 @@ module.exports = {
     new: newDrink,
     create,
     show,
+    edit,
     delete: deleteDrink,
+    update,
 };
 
 function index(req, res) {
@@ -39,8 +41,30 @@ function show(req, res) {
         });
 }
 
+function edit(req, res) {
+    Drink.findById(req.params.id).populate('user')
+        .exec(function(err, drink) {
+            res.render('drinks/edit', {drink});
+        });
+}
+
 function deleteDrink(req, res) {
     Drink.findOneAndDelete({_id: req.params.id, user: req.user._id}, function(err) {
         res.redirect('/drinks');
     });
 }
+
+function update(req, res) {
+    Drink.findOneAndUpdate(
+      {_id: req.params.id, user: req.user._id},
+      // update object with updated properties
+      req.body,
+      // options object with new: true to make sure updated doc is returned
+      {new: true},
+      function(err, drink) {
+        if (err || !drink) return res.redirect('/drinks');
+        res.redirect(`/drinks/${drink._id}`);
+      }
+    );
+  }
+  

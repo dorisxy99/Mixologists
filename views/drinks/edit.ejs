@@ -1,0 +1,27 @@
+<%- include('../partials/header') %>
+<%- include('../partials/navbar') %>
+
+<main>
+    <div class="container">
+        <form action="/drinks/<%= drink._id %>?_method=PUT" method="POST">
+            <div class="mb-3">
+                <label for="exampleFormControlInput1" class="form-label">Name of the drink</label>
+                <input value="<%= drink.name %>" required type="text" class="form-control" id="exampleFormControlInput1" placeholder="Peach delight" name="name">
+            </div>
+            <div class="mb-3">
+                <label for="exampleFormControlTextarea1" class="form-label">Ingredients</label>
+                <textarea required class="form-control" id="exampleFormControlTextarea1" rows="3" placeholder="- Loads of love &#10- Sugar and Spice &#10- Tiny tears" name="ingredients"><%= drink.ingredients %></textarea>
+            </div>
+            <div class="mb-3">
+                <label for="exampleFormControlInput1" class="form-label">Img URL (Optional)</label>
+                <input value="<%= drink.img %>" type="text" class="form-control" id="exampleFormControlInput1" name="img">
+            </div>
+            <div class="mb-3">
+                <input class="btn btn-primary" type="submit" value="Update Drink">
+            </div>
+        </form>
+    </div>
+
+</main>
+
+<%- include('../partials/footer') %>

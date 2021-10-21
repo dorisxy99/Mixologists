@@ -6,3 +6,7 @@
   height: 400px;
   object-fit: cover;
 }
+
+.show-breaks {
+  white-space: pre-wrap;
+}
