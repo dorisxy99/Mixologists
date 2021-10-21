@@ -1,4 +1,4 @@
-const drink = require('../models/drink');
+const Drink = require('../models/drink');
 
 module.exports = {
     index,
@@ -9,7 +9,7 @@ module.exports = {
 function index(req, res) {
     Drink.find({}, function(err, drinks) {
         res.render('drinks/index', {drinks});
-    }).sort('name');
+    }).sort({'createdAt': -1});
 };
 
 function newDrink(req, res) {

@@ -1,13 +1,31 @@
 <%- include('../partials/header') %>
+<%- include('../partials/navbar') %>
+<main>
+  <div class="container">
+    
+    <h1>See what's fresh at the bar</h1>
+    <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
 
-<main id="drinks-index">
-    <h2>Mixed Drinks!</h2>
-    <section id="drinks">
-        <a href="/drinks/new"><div>+ Add a new drink</div></a>
-        <% drinks.forEach(function(d) { %>
-          <div><%= d.name %></div>
-          <% }); %>
-    </section>
+      <% drinks.forEach(function(drink) { %>
+            <div class="col">
+              <div class="card" style="width: 18rem;">
+                <% if (drink.img) { %>
+                  <img src="<%= drink.img %>" class="card-img-top">
+                <% }else{ %>
+                  <img src="/img/placeholder.jpg" class="card-img-top">
+                <% } %> 
+                <div class="card-body">
+                  <h5 class="card-title"><%= drink.name %></h5>
+                  <p class="card-text"><%= drink.ingredients %></p>
+                  <a href="/drinks/<%= drink._id %>" class="btn btn-primary">Go somewhere</a>
+                </div>
+              </div>
+            </div>
+       <% }); %>
+
+    </div>
+
+  </div>
 </main>
-
+  
 <%- include('../partials/footer') %>

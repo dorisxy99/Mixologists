@@ -4,9 +4,9 @@ const Schema = mongoose.Schema;
 
 const reviewSchema = new Schema({
     content: {type: String, required: true},
-    rating: {type: Number, min: 1, max: 5, default: 5},
+    rating: Schema.Types.ObjectId,
     // Add the 3 new properties below
-    user: {type: Schema.Types.ObjectId, ref: 'User'},
+    user: Schema.Types.ObjectId,
     userName: String,
     userAvatar: String
   }, {
@@ -15,9 +15,9 @@ const reviewSchema = new Schema({
 
 const drinkSchema = new Schema({
     name: String,
-    link: String,
+    img: String,
     ingredients: String,
-    creator: Schema.Types.ObjectId,
+    user: Schema.Types.ObjectId,
     reviews: [reviewSchema]
 }, {
     timestamps: true

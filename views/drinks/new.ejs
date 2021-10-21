@@ -1,17 +1,42 @@
 <%- include('../partials/header') %>
-<h2>Add a new drink</h2>
+<%- include('../partials/navbar') %>
 
-<form id="add-drink" action="/drinks" method="POST">
+<main>
+    <div class="container">
+        <form id="add-drink" action="/drinks/new" method="POST">
+            <div class="mb-3">
+                <label for="exampleFormControlInput1" class="form-label">Name of the drink</label>
+                <input required type="text" class="form-control" id="exampleFormControlInput1" placeholder="Peach delight" name="name">
+            </div>
+            <div class="mb-3">
+                <label for="exampleFormControlTextarea1" class="form-label">Ingredients</label>
+                <textarea required class="form-control" id="exampleFormControlTextarea1" rows="3" placeholder="- Loads of love &#10- Sugar and Spice &#10- Tiny tears" name="ingredients"></textarea>
+            </div>
+            <div class="mb-3">
+                <label for="exampleFormControlInput1" class="form-label">Img URL (Optional)</label>
+                <input type="text" class="form-control" id="exampleFormControlInput1" name="img">
+            </div>
+            <div class="mb-3">
+                <input class="btn btn-primary" type="submit" value="Add Drink">
+            </div>
+        </form>
+    </div>
+
+</main>
+
+<!-- <h2>Add a new drink</h2>
+
+<form id="add-drink" action="/drinks/new" method="POST">
     <label>Name:
         <input type="text" name="name">
     </label>
     <label>Ingredients:
-        <input type="text" name="address">
+        <input type="text" name="ingredients">
     </label>
-    <label>URL:
-        <input type="text" name="url">
+    <label>Img:
+        <input type="text" name="img">
     </label>
     <input type="submit" value="Add Drink">
-</form>
+</form> -->
 
 <%- include('../partials/footer') %>

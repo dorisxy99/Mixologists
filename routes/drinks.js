@@ -4,8 +4,8 @@ const drinksCtrl = require('../controllers/drinks');
 
 /* GET users listing. */
 router.get('/', drinksCtrl.index);
-
 router.get('/new', drinksCtrl.new);
+router.post('/new', drinksCtrl.create);
 
 router.post('/', drinksCtrl.create);
 

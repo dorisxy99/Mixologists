@@ -8,9 +8,9 @@ router.get('/', function(req, res, next) {
 });
 
 /* GET home page. */
-router.get('/home', function(req, res, next) {
-  res.render('home');
-});
+// router.get('/home', function(req, res, next) {
+//   res.render('home');
+// });
 
 module.exports = router;
 
@@ -24,7 +24,7 @@ router.get('/auth/google', passport.authenticate(
 router.get('/oauth2callback', passport.authenticate(
   'google',
   {
-    successRedirect : '/home',
+    successRedirect : '/drinks',
     failureRedirect : '/'
   }
 ));
