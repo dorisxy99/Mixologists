@@ -2,9 +2,14 @@ var express = require('express');
 var router = express.Router();
 var passport = require('passport');
 
-/* GET home page. */
+/* GET landing page. */
 router.get('/', function(req, res, next) {
   res.render('landing');
+});
+
+/* GET home page. */
+router.get('/home', function(req, res, next) {
+  res.render('home');
 });
 
 module.exports = router;
@@ -19,7 +24,7 @@ router.get('/auth/google', passport.authenticate(
 router.get('/oauth2callback', passport.authenticate(
   'google',
   {
-    successRedirect : '/',
+    successRedirect : '/home',
     failureRedirect : '/'
   }
 ));

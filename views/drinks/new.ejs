@@ -1,0 +1,17 @@
+<%- include('../partials/header') %>
+<h2>Add a new drink</h2>
+
+<form id="add-drink" action="/drinks" method="POST">
+    <label>Name:
+        <input type="text" name="name">
+    </label>
+    <label>Ingredients:
+        <input type="text" name="address">
+    </label>
+    <label>URL:
+        <input type="text" name="url">
+    </label>
+    <input type="submit" value="Add Drink">
+</form>
+
+<%- include('../partials/footer') %>

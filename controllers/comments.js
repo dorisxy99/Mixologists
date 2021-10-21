@@ -1,4 +1,3 @@
-const drink = require('../models/drink');
 
 // function create(req, res) {
 //     // Find the movie to embed the review within

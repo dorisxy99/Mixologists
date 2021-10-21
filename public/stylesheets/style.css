@@ -1,19 +1,8 @@
-body {
-  padding: 50px;
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+.header-logo{
+  width: 50px;
+  margin-right: 15px;
 }
-
-a {
-  color: #d400ff;
-}
-
-.login {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 34px;
-}
-
-.login img {
-  height: 30px;
+.card img{
+  height: 400px;
+  object-fit: cover;
 }

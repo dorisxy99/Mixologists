@@ -5,13 +5,15 @@ const drinksCtrl = require('../controllers/drinks');
 /* GET users listing. */
 router.get('/', drinksCtrl.index);
 
-//router.get('/new', isLoggedIn, drinksCtrl.new);
+router.get('/new', drinksCtrl.new);
+
+router.post('/', drinksCtrl.create);
 
 // router.get('/:id', drinksCtrl.show);
 
 // router.get('/:id/edit', isLoggedIn, rstrntsCtrl.edit);
 
-// router.post('/', drinksCtrl.create);
+
 
 // router.delete('/:id', isLoggedIn, drinksCtrl.delete);
 
