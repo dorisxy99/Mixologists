@@ -3,7 +3,7 @@
 
 <main>
     <div class="container">
-        <form id="add-drink" action="/drinks/new" method="POST">
+        <form id="add-drink" action="/drinks" method="POST">
             <div class="mb-3">
                 <label for="exampleFormControlInput1" class="form-label">Name of the drink</label>
                 <input required type="text" class="form-control" id="exampleFormControlInput1" placeholder="Peach delight" name="name">
@@ -23,20 +23,5 @@
     </div>
 
 </main>
-
-<!-- <h2>Add a new drink</h2>
-
-<form id="add-drink" action="/drinks/new" method="POST">
-    <label>Name:
-        <input type="text" name="name">
-    </label>
-    <label>Ingredients:
-        <input type="text" name="ingredients">
-    </label>
-    <label>Img:
-        <input type="text" name="img">
-    </label>
-    <input type="submit" value="Add Drink">
-</form> -->
 
 <%- include('../partials/footer') %>

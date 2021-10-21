@@ -5,9 +5,10 @@ const drinksCtrl = require('../controllers/drinks');
 /* GET users listing. */
 router.get('/', drinksCtrl.index);
 router.get('/new', drinksCtrl.new);
-router.post('/new', drinksCtrl.create);
-
+router.get('/:id', drinksCtrl.show);
 router.post('/', drinksCtrl.create);
+router.delete('/:id', drinksCtrl.delete);
+
 
 // router.get('/:id', drinksCtrl.show);
 
@@ -15,7 +16,7 @@ router.post('/', drinksCtrl.create);
 
 
 
-// router.delete('/:id', isLoggedIn, drinksCtrl.delete);
+
 
 // //fix this one later
 // router.post('/comment_save', drinksCtrl.comment_save);

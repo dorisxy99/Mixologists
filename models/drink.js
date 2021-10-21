@@ -15,9 +15,9 @@ const reviewSchema = new Schema({
 
 const drinkSchema = new Schema({
     name: String,
-    img: String,
+    img: {type: String, default: '/img/placeholder.jpg'},
     ingredients: String,
-    user: Schema.Types.ObjectId,
+    user: {type: Schema.Types.ObjectId, ref: 'User'},
     reviews: [reviewSchema]
 }, {
     timestamps: true

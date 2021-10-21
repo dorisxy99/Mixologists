@@ -17,6 +17,7 @@
                 <div class="card-body">
                   <h5 class="card-title"><%= drink.name %></h5>
                   <p class="card-text"><%= drink.ingredients %></p>
+                  <p class="card-text">submitted by: <%= drink.user.name %></p>
                   <a href="/drinks/<%= drink._id %>" class="btn btn-primary">Go somewhere</a>
                 </div>
               </div>
