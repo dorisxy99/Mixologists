@@ -1,22 +1,7 @@
 <%- include('../partials/header') %>
 <%- include('../partials/navbar') %>
 
-<main>
-    <div class="container">
 
-        <h2><%= drink.name %></h2>
-        <div>Ingredients:</div>
-        <p class="show-breaks"><%= drink.ingredients %></p>
-        <% if (user && user._id.equals(drink.user._id)) { %>
-            <form action="/drinks/<%= drink._id %>/edit" method="GET">
-                <button type="submit">Edit this drink?</button>
-            </form>
-            <form action="/drinks/<%= drink._id %>?_method=DELETE" method="POST">
-                <button type="submit">Delete this drink?</button>
-            </form>
-        <% } %>      
-    </div>
-</main>
 
 
 
@@ -40,7 +25,7 @@
 <h2 id="review-title">Reviews</h2>
 <section>
   <div id="reviews-containers">
-    <% if (useruser && user._id.equals(drink.user._id)) { %>
+    <% if (user && user._id.equals(drink.user._id)) { %>
       <form id="add-review-form" method="POST" action="/drinks/<%= drink._id %>/reviews">
         <label>Rating:</label>
         <select id="rating-number" name="rating">
