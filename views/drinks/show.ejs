@@ -1,8 +1,26 @@
 <%- include('../partials/header') %>
 <%- include('../partials/navbar') %>
 
+<main>
+    <div class="container">
 
-<header id="drink-info">
+        <h2><%= drink.name %></h2>
+        <div>Ingredients:</div>
+        <p class="show-breaks"><%= drink.ingredients %></p>
+        <% if (user && user._id.equals(drink.user._id)) { %>
+            <form action="/drinks/<%= drink._id %>/edit" method="GET">
+                <button type="submit">Edit this drink?</button>
+            </form>
+            <form action="/drinks/<%= drink._id %>?_method=DELETE" method="POST">
+                <button type="submit">Delete this drink?</button>
+            </form>
+        <% } %>      
+    </div>
+</main>
+
+
+
+<body id="drink-info">
     <h2><%= drink.name %></h2>
     <div>Ingredients:</div>
     <p class="show-breaks"><%= drink.ingredients %></p>
@@ -14,6 +32,21 @@
             <button type="submit">Delete this drink?</button>
         </form>
     <% } %>
-</header>
+</body>
+
+<h3>Reviews</h3>
+<% if (user && user._id.equals(drink.user._id) { %>
+  <form id="add-review-form" method="POST" action="/drinks/<%= drink._id %>/reviews">
+    <label>What you think:</label>
+    <textarea name="content"></textarea>
+    <label>Rating:</label>
+    <select name="rating">
+      <option value="1">1</option>
+      <option value="2">2</option>
+      <option value="3">3</option>
+    </select>
+    <input type="submit" value="Add Review">
+<% }) %>
+
 
 <%- include('../partials/footer') %>

@@ -16,9 +16,10 @@
                 <% } %> 
                 <div class="card-body">
                   <h5 class="card-title"><%= drink.name %></h5>
-                  <p class="card-text"><%= drink.ingredients %></p>
+                  <!-- styled the avatar based on mongoose-movies!! -->
+                  <p class="review-user"><img src="<%=drink.user.avatar %>"></p>
                   <p class="card-text">submitted by: <%= drink.user.name %></p>
-                  <a href="/drinks/<%= drink._id %>" class="btn btn-primary">Go somewhere</a>
+                  <a href="/drinks/<%= drink._id %>" class="btn btn-primary">Details</a>
                 </div>
               </div>
             </div>

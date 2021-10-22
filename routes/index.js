@@ -7,11 +7,6 @@ router.get('/', function(req, res, next) {
   res.render('landing');
 });
 
-/* GET home page. */
-// router.get('/home', function(req, res, next) {
-//   res.render('home');
-// });
-
 module.exports = router;
 
 // Google OAuth login route

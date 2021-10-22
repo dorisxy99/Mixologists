@@ -2,6 +2,7 @@ const Drink = require('../models/drink');
 
 module.exports = {
     create,
+    delete: deleteReview,
 }
 
 function create(req, res) {
@@ -17,7 +18,17 @@ function create(req, res) {
         drink.reviews.push(req.body);
         // Always save the top-level document (not subdocs)
         drink.save(function (err) {
-            res.redirect(`/drink/${drink._id}`);
+            res.redirect(`/drinks/${drink._id}`);
         });
     });
 }
+
+async function deleteReview(req, res) {
+    const drink = await Drink.findOne({'reviews._id': req.params.id});
+    const review = drink.reviews.id(req.params.id);
+    // Ensure that the review was created by the logged in user
+    if (!review.user.equals(req.user._id)) return res.redirect(`/drinks/${drink._id}`);
+    review.remove();
+    await drink.save();
+    res.redirect(`/drinks/${drink._id}`);
+  }
