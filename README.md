@@ -25,3 +25,7 @@ Consuming a third party API from somewhere such as [Pinterest]](https://develope
 <img src="https://i.imgur.com/oFIx6lq.png">
 
 <img src="https://i.imgur.com/AExYlzf.png">
+
+<img src="https://i.imgur.com/vMfL5ru.png">
+
+<img src ="https://i.imgur.com/SMenblz.png">
