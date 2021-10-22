@@ -21,3 +21,7 @@ Bootstrap
 
 # Next Steps: 
 Consuming a third party API from somewhere such as [Pinterest]](https://developers.pinterest.com/docs/api/v5/) would make it easier on the user by automatically filling in drink info
+
+<img src="https://i.imgur.com/oFIx6lq.png">
+
+<img src="https://i.imgur.com/AExYlzf.png">
