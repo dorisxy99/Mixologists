@@ -34,19 +34,78 @@
     <% } %>
 </body>
 
-<h3>Reviews</h3>
-<% if (user && user._id.equals(drink.user._id) { %>
-  <form id="add-review-form" method="POST" action="/drinks/<%= drink._id %>/reviews">
-    <label>What you think:</label>
-    <textarea name="content"></textarea>
-    <label>Rating:</label>
-    <select name="rating">
-      <option value="1">1</option>
-      <option value="2">2</option>
-      <option value="3">3</option>
-    </select>
-    <input type="submit" value="Add Review">
-<% }) %>
+
+<br>
+<br><br>
+<h2 id="review-title">Reviews</h2>
+<section>
+  <div id="reviews-containers">
+    <% if (useruser && user._id.equals(drink.user._id)) { %>
+      <form id="add-review-form" method="POST" action="/drinks/<%= drink._id %>/reviews">
+        <label>Rating:</label>
+        <select id="rating-number" name="rating">
+          <option value="1">1</option>
+          <option value="2">2</option>
+          <option selected value="3">3</option>
+        </select>
+        <br>
+        <br>
+        <label>What you think?</label>
+        <textarea name="content"></textarea>
+        <input type="submit" value="Add Review">
+      </form>
+      <% } %>
+        <br>
+        <div id="review-list">
+          <% if (drink.reviews.length) { %>
+            <table>
+              <thead>
+                <tr>
+                  <th>User</th>
+                  <th>Date</th>
+                  <th>Review</th>
+                  <th>Rating</th>
+                </tr>
+              </thead>
+              <tbody>
+                <% let total=0 %>
+                  <% drink.reviews.forEach(function(r) { %>
+                    <% total +=r.rating %>
+                      <tr>
+                        <td class="review-user"><img src="<%= r.userAvatar %>" alt="avatar"> &nbsp;&nbsp;
+                          <%= r.userName %>
+                        </td>
+                        <td>
+                          <%= r.createdAt.toLocaleDateString() %>
+                        </td>
+                        <td>
+                          <%= r.content %>
+                        </td>
+                        <td>
+                          <%= r.rating %>
+                        </td>
+                        <td>
+                          <% if (user?._id.equals(r.user)) { %>
+                            <form action="/reviews/<%= r._id %>?_method=DELETE" method="POST">
+                              <button type="submit">X</button>
+                            </form>
+                            <% } %>
+                        </td>
+                      </tr>
+                      <% }); %>
+                        <tr>
+                          <td colspan="3"></td>
+                          <td><strong>
+                              <%= (total / drink.reviews.length).toFixed(1) %>
+                            </strong></td>
+                        </tr>
+              </tbody>
+            </table>
+            <% } else { %>
+              <h5 id="No-R">No Reviews Yet</h5>
+              <% } %>
+        </div>
+</section>
 
 
 <%- include('../partials/footer') %>
