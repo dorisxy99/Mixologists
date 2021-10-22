@@ -2,9 +2,6 @@
 <%- include('../partials/navbar') %>
 
 
-
-
-
 <body id="drink-info">
     <h2><%= drink.name %></h2>
     <div>Ingredients:</div>
@@ -25,7 +22,7 @@
 <h2 id="review-title">Reviews</h2>
 <section>
   <div id="reviews-containers">
-    <% if (user && user._id.equals(drink.user._id)) { %>
+    <% if (user) { %>
       <form id="add-review-form" method="POST" action="/drinks/<%= drink._id %>/reviews">
         <label>Rating:</label>
         <select id="rating-number" name="rating">
