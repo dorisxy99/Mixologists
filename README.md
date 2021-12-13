@@ -5,7 +5,7 @@ It was created for users to rate and review their fav mixed drinks.
 
 # Getting Started
 
-Click ![here](https://mixology-01.herokuapp.com) to lauch the app!
+Click [here](https://mixology-01.herokuapp.com) to lauch the app!
 
 Trello: https://trello.com/b/YKXmPjyE/mixology
  
